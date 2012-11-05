@@ -1,0 +1,147 @@
+html {height: 100%}
+body{
+	height: 100%;
+    margin:0;
+    font:11px/13px Arial, Helvetica, sans-serif;
+    color:#000;
+    min-width:900px;
+    background:#fff;
+}
+img{border-style:none;}
+a{
+    text-decoration:underline;
+    color:#f9b300;
+}
+a:hover{text-decoration:none;}
+input,
+textarea,
+select{
+    font:100% Arial, Helvetica, sans-serif;
+    vertical-align:middle;
+}
+form,
+fieldset{
+    margin:0;
+    padding:0;
+    border-style:none;
+}
+#thisTable {
+	border-collapse: collapse;
+	width:800px;
+	text-align: center;
+	margin:0 auto;
+}
+#thisTable td {
+	line-height: 17px;
+	padding: 3px;
+	vertical-align: middle;
+}
+#thisTable th {
+	background: white;
+}
+#thisTable th a {
+	text-decoration: none;
+	float: left;
+	padding: 3px 20px 3px 4px;
+}
+#thisTable th a:hover {
+	color: #000;
+	background: #90d9f4;
+}
+#thisTable th a.active {
+	color: #000;
+	background: #90d9f4 url("../images/arr-down.gif") no-repeat 95% 50%;
+}
+#thisTable th a.active-inc {
+	color: #000;
+	background: #90d9f4 url("../images/arr-up.gif") no-repeat 95% 50%;
+}
+#paging {
+	width:600px;
+	margin:0 auto;
+	padding:20px 0;
+	list-style:none;
+	text-align: center;
+}
+#paging li {
+	display:inline;
+	margin:0 10px;
+	font-size:20px;
+}
+#paging li a {
+	text-decoration:none;
+	padding: 0 7px;
+}
+#paging li.active a,
+#paging li a:hover {
+	background: #cec;
+	font-weight:bold;
+}
+#form {
+	padding: 20px 0;
+	width:800px;
+	margin:0 auto;
+}
+.open-popup {
+	float: right;
+	width: 15px;
+	height: 15px;
+	background: url("../images/pic05.gif") no-repeat;
+	display: none;
+}
+
+#thisTable tr:hover .open-popup{
+	display: block;
+}
+
+#popup {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	z-index: 10;
+	top: 0;
+}
+#popup .close {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	right: -7px;
+	top: -7px;
+	background: white;
+	border-radius: 10px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+#popup .bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	background: #000;
+	opacity: 0.3;
+}
+#popup .popup-holder {
+	top: 30%;
+	width: 500px;
+	padding: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -260px;
+	background: #ccc;
+	border-radius: 10px;
+	z-index: 2;
+}
+
+.fixed-box {
+	width: 800px;
+	left: 50%;
+	margin-left: -400px;
+	border-bottom: 2px solid #000;
+	background: #fff;
+}
