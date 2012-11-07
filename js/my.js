@@ -31,22 +31,11 @@ function dataPick(cls){
 		}
 	}
 
-	function revert(dataBase) {
-		var el,
-			rows = table.querySelectorAll('tbody tr').length;
-		for (var i = 0; i < rows; i++){
-			for (var j = 0; j<cols; j++){
-				el = dataBase[i][cols-j].innerHTML;
-				dataBase[i][cols-j].innerHTML = dataBase[i][j].innerHTML;
-				dataBase[i][j].innerHTML = el;
-			}
-		}
-	}
-	
 	var myHashchangeHandler = function(){
 		var params = getParams (window.location.hash);
 		makePagingActive(params.page);
 		makeFieldActive(params);
+		makeText(params.field)
 	} 
 	window.addEventListener("hashchange", myHashchangeHandler, false);
 
@@ -59,6 +48,7 @@ function dataPick(cls){
 		closePopup = popup.querySelector('.close');
 
 	function hidePopup(){
+		document.body.style.overflow = 'visible';
 		popup.style.display = "none";
 	}
 	hidePopup();
@@ -83,6 +73,18 @@ function dataPick(cls){
 		}
 		if (hasClass(_this,'open-popup')) {
 			popup.style.display = "block";
+			var winHeight = document.documentElement.clientHeight,
+				popupHolder = popup.querySelector('.popup-holder'),
+				boxHeight = popupHolder.clientHeight;
+
+			if (boxHeight > winHeight) {
+				winHeight = boxHeight;
+				popup.querySelector('.bg').style.height = boxHeight+40+'px';
+				popupHolder.style.top = '20px';
+				document.body.style.overflow = 'hidden';
+			} else{
+				popupHolder.style.top = (winHeight - boxHeight)/2 + 'px';
+			}
 			e.preventDefault();
 		}
 	});
@@ -97,6 +99,10 @@ function dataPick(cls){
         if (e.keyCode == '27') {
             hidePopup();
         }
+    });
+
+    popup.querySelector('.bg').addEventListener('click',function(){
+    	hidePopup();
     });
 
 	paging.addEventListener('click', function(e){
@@ -133,6 +139,10 @@ function dataPick(cls){
 				field[i].className=type;
 			}
 		}
+	}
+
+	function makeText(text) {
+		inputF.value = text;
 	}
 
 	function getParams(string){
@@ -184,14 +194,27 @@ function dataPick(cls){
     	setParams('filter', this.value);
     });
 
-    var topLine = table.querySelector('thead');
-	var oldPosition = elementPosition(topLine).top;
+    var topLine = table.querySelector('thead tr'),
+		oldPosition = elementPosition(topLine).top,
+    	alreadyCloned = false;
 
 	window.onscroll = function (oEvent) {
+	  if (!alreadyCloned) {
+	  	var cloned = topLine.cloneNode(true);
+	  	cloned.className = 'cloned';
+	  }
 	  if (oldPosition < document.body.scrollTop) {
+	    if (!alreadyCloned) {
+			topLine.parentNode.appendChild(cloned);
+			alreadyCloned = true;
+        }
 	    topLine.style.position = 'fixed';
 	    topLine.style.top = '0px';
 	  } else {
+	  	if (alreadyCloned){
+	  		alreadyCloned = false;
+	  		topLine.parentNode.removeChild(topLine.parentNode.querySelector('.cloned'));
+	  	}
 	    topLine.style.position = 'static';
 	  }
 	}
