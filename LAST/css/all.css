@@ -1,0 +1,359 @@
+html {height: 100%}
+body{
+	height: 100%;
+    margin:0;
+    font:11px/13px Arial, Helvetica, sans-serif;
+    color:#000;
+    min-width:900px;
+    background:#fff;
+}
+img{border-style:none;}
+a{
+    text-decoration:underline;
+    color:#f9b300;
+}
+a:hover{text-decoration:none;}
+input,
+textarea,
+select{
+    font:100% Arial, Helvetica, sans-serif;
+    vertical-align:middle;
+}
+form,
+fieldset{
+    margin:0;
+    padding:0;
+    border-style:none;
+}
+.table-holder {
+	padding: 20px;
+}
+#thisTable {
+	font-size: 12px;
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+	margin:0 auto;
+}
+#thisTable td:last-child {
+}
+#thisTable ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+#thisTable td {
+	width: 125px;
+	line-height: 17px;
+	padding: 3px;
+	vertical-align: middle;
+}
+#thisTable th {
+	text-align: left;
+	background: white;
+}
+#thisTable th:last-child {
+	width: 10px;
+}
+#thisTable th a {
+	text-decoration: none;
+	float: left;
+	padding: 3px 20px 3px 4px;
+}
+#thisTable th a:hover {
+	color: #000;
+	background: #90d9f4;
+}
+#thisTable th a.active {
+	color: #000;
+	background: #90d9f4 url("../images/arr-down.gif") no-repeat 95% 50%;
+}
+#thisTable th a.active-inc {
+	color: #000;
+	background: #90d9f4 url("../images/arr-up.gif") no-repeat 95% 50%;
+}
+#paging {
+	width:600px;
+	margin:0 auto;
+	padding:20px 0;
+	list-style:none;
+	text-align: center;
+}
+#paging li {
+	display:inline;
+	margin:0 10px;
+	font-size:20px;
+}
+#paging li a {
+	text-decoration:none;
+	padding: 0 7px;
+}
+#paging li.active a,
+#paging li a:hover {
+	background: #cec;
+	font-weight:bold;
+}
+#form {
+	padding: 20px 0;
+	width:800px;
+	margin:0 auto;
+}
+.open-popup {
+	float: right;
+	width: 15px;
+	height: 15px;
+	background: url("../images/pic05.gif") no-repeat;
+	display: none;
+}
+
+#thisTable tr:hover .open-popup{
+	display: block;
+}
+
+#popup {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	left: 0;
+	z-index: 10;
+	top: 0;
+	overflow-x: hidden;
+    overflow-y: auto;
+}
+#popup .close {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	position: absolute;
+	right: -7px;
+	top: -7px;
+	background: white;
+	border-radius: 10px;
+	text-align: center;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+}
+#popup .bg {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+	background: #000;
+	opacity: 0.3;
+}
+#popup .popup-holder {
+	top: 30%;
+	width: 500px;
+	padding: 20px;
+	position: absolute;
+	left: 50%;
+	margin-left: -260px;
+	background: #ccc;
+	border-radius: 10px;
+	z-index: 2;
+}
+
+.fixed-box {
+	width: 800px;
+	left: 50%;
+	margin-left: -400px;
+	border-bottom: 2px solid #000;
+	background: #fff;
+}
+
+#info-form {width: 100%;}
+#info-form label {
+	padding-top: 4px;
+	float: left;
+	width: 145px;
+	padding-right: 5px;
+}
+
+#info-form .row {
+	width: 100%;
+	overflow: hidden;
+	padding-top: 10px;
+}
+#info-form .row:first-child {
+	padding-top: 0;
+}
+
+#info-form .cell {
+	display: table;
+}
+#info-form textarea,
+#info-form input[type='text'] {
+	margin: 0;
+	float: left;
+	width: 180px;
+	padding: 2px 7px;
+	margin-right: 10px;
+}
+#info-form .remove,
+#info-form .add {
+	float: left;
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+}
+#info-form .name,
+#info-form textarea {
+	width: 300px !important;
+}
+
+#info-form textarea {
+	overflow: auto;
+	height: 100px;
+}
+
+/*************************************/
+.datapicker-form {
+    padding: 20px;
+    height: 1%;
+}
+.datapicker-form:after {
+    clear: both;
+    display: block;
+    content: "";
+}
+.datap {
+    float: left;
+    position: relative;
+}
+.datap input[type='text'] {
+    float: left;
+    padding: 2px 2px 2px 5px;
+    height: 19px;
+    width: 200px;
+    border: 1px solid #000;
+}
+.datap .btn-calendar {
+    width: 15px;
+    line-height: 15px;
+    float: left;
+    margin: 2px 0 0 -27px;
+    text-align: center;
+    color: #fff;
+    background: #000;
+}
+.datapicker   {
+	z-index: 10;
+	background: #fff;
+    display: none;
+    position: absolute;
+    width: 224px;
+    padding: 2px;
+    border: 1px solid #000;
+}
+.datapicker-open   {display: block;}
+.datapicker   .title {
+    width: 100%;
+    overflow: hidden;
+	text-align: center;
+}
+.datapicker   .title a {
+    float: right;
+}
+.datapicker   .title a:first-child {
+    float: left;
+}
+.datapicker   .title .title-text {
+    display: block;
+    text-align: center;
+}
+.calendar-table {
+    width: 100%;
+	table-layout: fixed;
+	font-size: 10px;
+}
+.calendar-table td {
+    border: 1px solid #ccc;
+    background: #efefef;
+    padding: 3px 1px;
+    text-align: center;
+}
+.calendar-table td:hover {border-color: red;}
+.calendar-table td.curent {border-color: orange;}
+.type-mounth td {font-size: 9px;}
+.datapicker .btn-today {
+    display: block;
+    width: 20%;
+    margin: 0 auto;
+    padding: 2px 5px;
+    border: 1px solid #222;
+    text-decoration: none;
+    background: #efefef;
+    color: #000;
+}
+.grey {
+    background: #fff;
+    color: #ccc;
+}
+.btn-prev,
+.btn-next {
+	float:right;
+	width:10px;
+	height:10px;
+	cursor: pointer;
+	background: red;
+}
+.btn-prev {
+	float: left;
+}
+
+/* ******************************** */
+.drop {
+	font-size: 16px;
+	line-height:normal;
+	text-decoration:none;
+	color: #000;
+	float:left;
+	padding: 3px 10px;
+	-webkit-border-radius: 4px;
+    border-radius: 4px;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 1);
+	box-shadow: inset 0px 2px 5px 0px rgba(0, 0, 0, 1);
+}
+.drop.active {
+	-webkit-box-shadow: inset 0px -2px 5px 0px rgba(0, 0, 0, 1);
+	box-shadow: inset 0px -2px 5px 0px rgba(0, 0, 0, 1);
+}
+.drop-box {
+	z-index: 20;
+	background: #fff;
+	width: 200px;
+	border: 1px solid #ccc;
+	padding: 3px;
+	-webkit-border-radius: 4px;
+    border-radius: 4px;
+	-webkit-box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+    box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.5);
+}
+.drop-box input[type='text'] {
+	width: 190px;
+	padding: 2px 4px;
+	border: 1px solid  #ccc;
+	-webkit-box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
+}
+.drop-box ul {
+	margin:0;
+	padding:5px 0;
+	list-style:none;
+	font-size:13px;
+}
+.drop-box li a {
+	display:block;
+	width: 100%;
+	color:#000;
+	padding: 1px 4px 2px;
+	margin: 0 -4px;
+}
+.drop-box li a.active,
+.drop-box li a:hover {
+	background: #00CEFC;
+}
